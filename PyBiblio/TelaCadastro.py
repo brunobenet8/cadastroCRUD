@@ -141,12 +141,3 @@ class Ui_Dialog(object):
         self.pushButton_3.setText(_translate("Dialog", "Salvar", None))
         self.pushButton_2.setText(_translate("Dialog", "Cancelar", None))
 
-"""
-if __name__ == "__main__":
-    app = QtGui.QApplication(sys.argv)
-    Dialog = QtGui.QDialog()
-    ui = Ui_Dialog()
-    ui.setupUi(Dialog)
-    Dialog.show()
-    sys.exit(app.exec_())
-"""
