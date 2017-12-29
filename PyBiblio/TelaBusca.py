@@ -106,15 +106,3 @@ class Ui_Dialog(object):
                 self.tableWidget.setItem(linha,1, QTableWidgetItem(str(CRUD.buscar(self.comboBox.currentIndex(), str(self.lineEdit.text()))[linha][1])))
                 self.tableWidget.setItem(linha,2, QTableWidgetItem(str(CRUD.buscar(self.comboBox.currentIndex(), str(self.lineEdit.text()))[linha][2])))
                 self.tableWidget.setItem(linha,3, QTableWidgetItem(str(CRUD.buscar(self.comboBox.currentIndex(), str(self.lineEdit.text()))[linha][3])))
-
-"""
-if __name__ == "__main__":
-    import sys
-    app = QtGui.QApplication(sys.argv)
-    Dialog = QtGui.QDialog()
-    ui = Ui_Dialog()
-    ui.setupUi(Dialog)
-    ui.preenche()
-    Dialog.show()
-    sys.exit(app.exec_())
-"""
