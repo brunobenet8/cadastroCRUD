@@ -50,9 +50,3 @@ class Application(QWidget):
         self.w.setWindowTitle('..:: Tela de Busca ::..')
         self.w.setGeometry(100,100,600,250)
         self.w.show()
-
-"""
-if __name__ == '__main__':
-    app = QApplication(sys.argv)
-    t = Application()
-    sys.exit(app.exec_())"""
