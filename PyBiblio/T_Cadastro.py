@@ -52,10 +52,3 @@ class TCadastro(QWidget):
         self.w.setWindowTitle("..:: Tela de Cadastro ::..")
         self.w.setGeometry(100, 100, 400, 200)
         self.w.show()
-
-
-"""
-if __name__ == '__main__':
-    app = QApplication(sys.argv)
-    t = Application()
-    sys.exit(app.exec_())"""
