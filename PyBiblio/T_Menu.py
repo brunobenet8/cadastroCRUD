@@ -36,11 +36,15 @@ class Application(QWidget):
 
     def busca(self):
         busca = T_Busca.Application()
-        busca.exec_()
+        sub = QMdiSubWindow()
+        sub.setWidget(busca)
+        self.mdi.addSubWindow(sub)
 
     def cadastro(self):
         cadastro = T_Cadastro.TCadastro()
-        cadastro.exec_()
+        sub = QMdiSubWindow()
+        sub.setWidget(cadastro)
+        self.mdi.addSubWindow(sub)
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
