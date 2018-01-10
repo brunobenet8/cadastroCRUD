@@ -12,6 +12,7 @@ class Application(QWidget):
     def __init__(self, parent=None):
         super(Application, self).__init__(parent)
         self.w = QMainWindow()
+        self.md1 = QMdiArea()
 
         self.buscar = QAction('Pesquisa', self)
         self.buscar.triggered.connect(self.busca)
