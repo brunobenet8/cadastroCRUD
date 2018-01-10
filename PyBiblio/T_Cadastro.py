@@ -68,6 +68,12 @@ class TCadastro(QWidget):
         w = QWidget()
         QMessageBox.information(w, 'Mensagem', msg)
         w.show()
+        
+    def cadastrar(self):
+        self.mensagem(CRUD.inserir(str(self.t2.text()),
+            str(self.t3.text()),
+            str(self.t4.text())))
+        self.limpar()
 
     def limpar(self):
         self.t1.setText('')
