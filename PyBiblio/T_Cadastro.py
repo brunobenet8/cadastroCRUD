@@ -52,3 +52,26 @@ class TCadastro(QWidget):
         self.w.setWindowTitle("..:: Tela de Cadastro ::..")
         self.w.setGeometry(100, 100, 400, 200)
         self.w.show()
+        
+        def busca(self):
+        try:
+            campo = CRUD.listar(str(self.t1.text()))
+            if(len(campo) > 0):
+                self.t2.setText(str(campo[1]))
+                self.t3.setText(str(campo[2]))
+                self.t4.setText(str(campo[3]))
+        except:
+            self.mensagem('Valor nao encontrado!')
+            self.limpar()
+
+    def mensagem(self, msg):
+        w = QWidget()
+        QMessageBox.information(w, 'Mensagem', msg)
+        w.show()
+
+    def limpar(self):
+        self.t1.setText('')
+        self.t2.setText('')
+        self.t3.setText('')
+        self.t4.setText('')
+        
