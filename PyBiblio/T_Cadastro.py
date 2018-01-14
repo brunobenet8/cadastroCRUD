@@ -13,6 +13,7 @@ class TCadastro(QWidget):
         self.l1 = QLabel("ID:")
         self.t1 = QLineEdit()
         self.b1 = QPushButton("...")
+        self.b1.clicked.connect(self.busca)
 
         self.hbox = QHBoxLayout()
         self.hbox.addWidget(self.t1)
@@ -37,6 +38,8 @@ class TCadastro(QWidget):
 
         self.b2 = QPushButton("Salvar")
         self.b3 = QPushButton("Cancelar")
+        self.b2.clicked.connect(self.verifica)
+        self.b3.clicked.connect(self.limpar)
 
         self.fbox = QFormLayout()
         self.fbox.addRow(self.l1, self.hbox)
@@ -53,6 +56,24 @@ class TCadastro(QWidget):
         self.w.setGeometry(100, 100, 400, 200)
         self.w.show()
         
+        def verifica(self):
+            if(len(self.t1.text()) > 0):
+                self.alterar()
+            else:
+                self.cadastrar()
+
+        def alterar(self):
+            self.mensagem(CRUD.alterar(int(self.t1.text()),
+                str(self.t2.text()), str(self.t3.text()),
+                str(self.t4.text())))
+            self.limpar()            
+
+        def cadastrar(self):
+            self.mensagem(CRUD.inserir(str(self.t2.text()),
+                str(self.t3.text()),
+                str(self.t4.text())))
+            self.limpar()        
+        
         def busca(self):
         try:
             campo = CRUD.listar(str(self.t1.text()))
@@ -68,16 +89,9 @@ class TCadastro(QWidget):
         w = QWidget()
         QMessageBox.information(w, 'Mensagem', msg)
         w.show()
-        
-    def cadastrar(self):
-        self.mensagem(CRUD.inserir(str(self.t2.text()),
-            str(self.t3.text()),
-            str(self.t4.text())))
-        self.limpar()
 
     def limpar(self):
         self.t1.setText('')
         self.t2.setText('')
         self.t3.setText('')
         self.t4.setText('')
-        
