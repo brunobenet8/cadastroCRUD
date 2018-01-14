@@ -4,7 +4,8 @@ import sqlite3
 def inserir(nome, endereco, obs):
     conn = sqlite3.connect('dbContatos')
     cursor = conn.cursor()
-    cursor.execute('INSERT INTO Lista(Nome, Endereco, Obs) values(?,?,?)', (nome, endereco, obs))
+    cursor.execute('INSERT INTO Lista(Nome, Endereco, Obs) values(?,?,?)',
+        (nome, endereco, obs))
     conn.commit()
     conn.close()
     return 'Cadastrado com Sucesso!'
@@ -31,7 +32,8 @@ def deletar(id):
 def alterar(id, nome, endereco, obs):
     conn = sqlite3.connect('dbContatos')
     cursor = conn.cursor()
-    cursor.execute('UPDATE Lista SET Nome = ?, Endereco = ?, Obs = ? where ID = ?', (nome, endereco, obs, id))
+    cursor.execute("""UPDATE Lista SET Nome = ?,
+        Endereco = ?, Obs = ? where ID = ?""", (nome, endereco, obs, id))
     conn.commit()
     conn.close()
     return 'Dados alterados com Sucesso!'
