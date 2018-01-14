@@ -50,3 +50,17 @@ class Application(QWidget):
         self.w.setWindowTitle('..:: Tela de Busca ::..')
         self.w.setGeometry(100,100,600,250)
         self.w.show()
+
+        def buscar(self):
+        self.tb.setRowCount(0)
+        resultado = CRUD.buscar(self.cb.currentIndex(), str(self.t1.text()))
+        for linha in range(len(resultado)):
+            self.tb.insertRow(linha)
+            self.tb.setItem(linha, 0,
+                QTableWidgetItem(str(resultado[linha][0])))
+            self.tb.setItem(linha, 1,
+                QTableWidgetItem(str(resultado[linha][1])))
+            self.tb.setItem(linha, 2,
+                QTableWidgetItem(str(resultado[linha][2])))
+            self.tb.setItem(linha, 3,
+                QTableWidgetItem(str(resultado[linha][3])))
